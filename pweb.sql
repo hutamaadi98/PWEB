@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2018 at 10:33 AM
+-- Generation Time: May 09, 2018 at 08:11 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -38,7 +38,11 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`userid`, `nama`, `password`, `salt`) VALUES
-('breezy', 'kevin', '6ad03a897f5cc42f37450e8e566cfdc5', 'EZPZLEMONSQUEEZY');
+('adi', 'Hutama', 'ad890906de5865f40af07b53efb6ede3', 'GAro'),
+('breezy', 'kevin', '6ad03a897f5cc42f37450e8e566cfdc5', 'EZPZLEMONSQUEEZY'),
+('daewqe', 'aaa', 'ee79981e647620bab800233db188e9b0', 'adi'),
+('ddd', 'aaa', '40764849dde72e451e3557aabb090293', 'Hutama'),
+('localhost', 'vxcv', 'ec6a6536ca304edf844d1d248a4f08dc', '');
 
 -- --------------------------------------------------------
 
@@ -50,6 +54,14 @@ CREATE TABLE `merk` (
   `idmerk` int(11) NOT NULL,
   `nama` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `merk`
+--
+
+INSERT INTO `merk` (`idmerk`, `nama`) VALUES
+(1, 'Daihatsu'),
+(2, 'Toyota');
 
 -- --------------------------------------------------------
 
@@ -73,6 +85,28 @@ CREATE TABLE `mobil` (
   `ukuran_velg` int(11) DEFAULT NULL,
   `ukuran_roda` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mobil`
+--
+
+INSERT INTO `mobil` (`idmobil`, `idmerk`, `tipe`, `panjang`, `lebar`, `tinggi`, `jarak_sumbu_roda`, `radius_putar`, `harga_min`, `harga_max`, `kapasitas_mesin`, `kapasitas_tangki`, `ukuran_velg`, `ukuran_roda`) VALUES
+(1, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(2, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(3, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(4, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(5, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(6, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(7, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(8, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(9, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(10, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(11, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(12, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(13, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(14, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11'),
+(15, 1, 'Xenia', 200, 100, 27, 2, 3, 100000, 10000000000000, 2, 2, 2, '12'),
+(16, 2, 'Avanza', 200, 100, 23, 2, 2, 2, 2, 2, 2, 2, '11');
 
 --
 -- Indexes for dumped tables
@@ -105,12 +139,12 @@ ALTER TABLE `mobil`
 -- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
-  MODIFY `idmerk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmerk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `idmobil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Constraints for dumped tables
 --
