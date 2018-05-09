@@ -1,4 +1,5 @@
 <?php
+	session_start();
 
 	$host = "localhost";
 	$username = "root";
@@ -32,24 +33,12 @@
 				$finalpass = md5($pass);
 
 				if (($_POST["user"] == $row["userid"]) && ($finalpass == $row["password"]))
-					echo "Login Sukses. <BR>";
+				{
+					$_SESSION["login"] = $_POST["user"];
+					header("Location: listMobil.php");
+				}
 				else
 					echo "Login Gagal. <BR>";
-
-				// echo "<tr> 
-				// <td><img width='50' height='50' src='gambar_hero/".$row['hero_id'].".jpg'></td> 
-				// <td>" . $row['name'] . "</td> 
-				// <td>" . $row['type'] . "</td> 
-				// <td>" . $row['strength'] . "</td> 
-				// <td>" . $row['agility'] . "</td> 
-				// <td>" . $row['intelligence'] . "</td> 
-				// <td>" . $row['damage'] . "</td> 
-				// <td>" . $row['armor'] . "</td> 
-				// <td>" . $row['is_ranged'] . "</td> 
-				// <td> <a href='Week8_halamanEdit.php?id=".$row['hero_id']."'> edit </a> 
-				// 	 <a href='halamanUpload.php?id=".$row['hero_id']."'> upload </a>
-				//      <a href='Week8_halamanDelete.php?id=".$row['hero_id']."'> delete </a> </td>
-				// </tr>";
 		}
 	}
 ?>
