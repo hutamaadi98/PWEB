@@ -102,14 +102,29 @@
 		echo "<a href='listMobil.php?start=0&katakunci=".$katakunci."'>First</a> &nbsp";
 		$prev = $start_data - $jumlah_per_halaman;
 		$next = $start_data + $jumlah_per_halaman;
-		echo "<a href='listMobil.php?start=".$prev."&katakunci=".$katakunci."'>Prev</a> &nbsp";
+		$last = ($jumlah_halaman-1)*$jumlah_per_halaman;
+		if($prev = $start_data)
+		{
+			echo "<a href='listMobil.php?start=".$prev."&katakunci=".$katakunci."'>Prev</a> &nbsp";
+		}
+		else
+		{
+			echo "";
+		}
 		for($page=1; $page<=$jumlah_halaman;$page++)
 		{
 			$st = ($page-1)*$jumlah_per_halaman;
 			echo "<a href='listMobil.php?start=".$st."&katakunci=".$katakunci."'>".$page."</a> &nbsp";
 		}
-		echo "<a href='listMobil.php?start=".$next."&katakunci=".$katakunci."'>Next</a> &nbsp";
-		$last = ($jumlah_halaman-1)*$jumlah_per_halaman;
+		if($next = $last)
+		{
+			echo "<a href='listMobil.php?start=".$next."&katakunci=".$katakunci."'>Next</a> &nbsp";
+		}
+		else
+		{
+			echo "";
+		}
+		
 		echo "<a href='listMobil.php?start=".$last."&katakunci=".$katakunci."'>Last</a> &nbsp";
 
 		echo "<BR><BR>";
