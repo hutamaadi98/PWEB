@@ -9,6 +9,7 @@
 	$sql = "SELECT * FROM merk";
 	$stmt = $mysqli->query($sql);
 
+	$mysqli -> close();
 ?>
 
 <form>
