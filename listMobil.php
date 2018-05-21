@@ -6,7 +6,9 @@
 		echo "<html>
  				<form>
 					<p>Input Keyword: <input type = 'text' name = 'katakunci' value = ''>
-					<input type = 'submit' name ='btnsubmit' value = 'Cari'> <BR></p>
+					<input type = 'submit' name ='btnsubmit' value = 'Cari'>
+					<a href='tambahMobil.php'>Tambah Data</a>
+					<BR></p>
  				</form>";
 		$host = "localhost";
 		$username = "root";
@@ -26,6 +28,8 @@
 		 	echo "<p>Pencarian untuk '".$katakunci."' :</p>";
 		 }
 		 
+		 echo "<BR>";
+		 echo "";
 
 		 $jumlah_per_halaman = 5;
 		 $start_data = 0;
@@ -85,9 +89,9 @@
 				<td>". $row['kapasitas_tangki']."</td>
 				<td>". $row['ukuran_velg']."</td>
 				<td>". $row['ukuran_roda']."</td>
-				<td> <a href='editMobil.php?id=".$row['hero_id']."'> edit </a> 
-			 <a href='halamanUpload.php?id=".$row['hero_id']."'> upload </a>
-		     <a href='Week8_halamanDelete.php?id=".$row['hero_id']."'> delete </a> </td>
+				<td> <a href='editMobil.php?id=".$row['idmobil']."'> edit </a> 
+			 <a href='halamanUpload.php?id=".$row['idmobil']."'> upload </a>
+		     <a href='hapusMobil.php?id=".$row['idmobil']."'> delete </a> </td>
 				</tr>";
 			}
 
@@ -95,11 +99,20 @@
 		echo"</table>";
 		$mysqli->close();
 
-		for($page = 1; $page<=$jumlah_halaman; $page++)
+		echo "<a href='listMobil.php?start=0&katakunci=".$katakunci."'>First</a> &nbsp";
+		$prev = $start_data - $jumlah_per_halaman;
+		$next = $start_data + $jumlah_per_halaman;
+		echo "<a href='listMobil.php?start=".$prev."&katakunci=".$katakunci."'>Prev</a> &nbsp";
+		for($page=1; $page<=$jumlah_halaman;$page++)
 		{
-			$st = ($page-1)* $jumlah_per_halaman;
-			echo"<a href = 'listMobil.php?start=".$st."&katakunci=".$katakunci."'>".$page."</a> &nbsp; ";
+			$st = ($page-1)*$jumlah_per_halaman;
+			echo "<a href='listMobil.php?start=".$st."&katakunci=".$katakunci."'>".$page."</a> &nbsp";
 		}
+		echo "<a href='listMobil.php?start=".$next."&katakunci=".$katakunci."'>Next</a> &nbsp";
+		$last = ($jumlah_halaman-1)*$jumlah_per_halaman;
+		echo "<a href='listMobil.php?start=".$last."&katakunci=".$katakunci."'>Last</a> &nbsp";
+
+		echo "<BR><BR>";
 
 		echo "<a href='adminLogout.php'> LogOut</a>"; 
 	}
