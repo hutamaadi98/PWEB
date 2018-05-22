@@ -16,14 +16,15 @@
 	<h1> Input Mobil</h1>
 	<p> Tipe : <input type="text" name="tipe" id="tipe"></p>
 	<p>Merk: 
-		<select name="type" id="merk">
-			<?php
-				while($row = $stmt -> fetch_assoc())
-				{
-				    echo "<option value='".$row['idmerk']."'>".$row['nama']."</option>";
-				}
+		<select name="tipe" id="merk">
+			<option value="">Pilih Merk</option></select></p>
+			<!--<?php
+				//while($row = $stmt -> fetch_assoc())
+				//{
+				    //echo "<option value='".$row['idmerk']."'>".$row['nama']."</option>";
+				//}
 			?>
-		</select>
+		</select>-->
 	<p>Panjang : <input type="text" name="panjang" id="panjang"></p>
 	<p>Lebar : <input type="text" name="lebar" id="lebar"></p>
 	<p>Tinggi : <input type="text" name="tinggi" id="tinggi"></p>
@@ -39,6 +40,7 @@
 </form>
 
 <script src="jquery/jquery-2.1.4.min.js"></script>
+
 <script>
 	$("#submit").click(function() {
 		$.post("tambahMobil_ajax.php",
@@ -62,4 +64,16 @@
 			alert(data);
 		})
 	})
+</script>
+
+<script>
+	$("#merk").focusin(function() {
+		$.post("comboBox.php" , {
+			type: $("#merk").val()
+		})
+		.done(function(data){
+			//alert(data);
+			$("#merk").html(data);
+		})
+	});
 </script>
