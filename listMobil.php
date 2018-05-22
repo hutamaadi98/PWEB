@@ -58,6 +58,8 @@
 
 		echo "<table border = '1'>	
 			<tr> 
+				<th>Check</th>
+				<th>Gambar</th>
 				<th>Merk</th> 
 				<th>Tipe</th> 
 				<th>Panjang</th> 
@@ -76,6 +78,8 @@
 
 		while($row = $res->fetch_assoc()) {
 				echo "<tr>  
+				<td><input type='checkbox' name='checkbox' value='' id='checkbox'></td>
+				<td><img width='50' height='50' src='gambar/".$row['idmobil'].".jpg'></td> 
 				<td>".$row['nama']."</td>   
 				<td>". $row['tipe']."</td>
 				<td>".$row['panjang']."</td>   
@@ -105,11 +109,11 @@
 		$last = ($jumlah_halaman-1)*$jumlah_per_halaman;
 		if($prev = $start_data)
 		{
-			echo "<a href='listMobil.php?start=".$prev."&katakunci=".$katakunci."'>Prev</a> &nbsp";
+			echo "";
 		}
 		else
 		{
-			echo "";
+			echo "<a href='listMobil.php?start=".$prev."&katakunci=".$katakunci."'>Prev</a> &nbsp";
 		}
 		for($page=1; $page<=$jumlah_halaman;$page++)
 		{
@@ -139,3 +143,5 @@
 
 
 ?>
+
+
